@@ -11,7 +11,6 @@ client.on("ready", () => {
 
 client.on("message", (msg) => {
     if (msg.author.bot) return;
-    let isBotCommand = false;
     if (msg.channel instanceof DMChannel && msg.author.id !== CONFIG.ownerID) {
         client.users.fetch(CONFIG.ownerID).then((user) => {
             user.send(`${msg.author.username} sent:
@@ -20,7 +19,7 @@ ${msg.content}`);
     }
 
     if (!botPrefix.some((prefix) => {
-        msg.content.startsWith(prefix);
+        return msg.content.startsWith(prefix);
     })) return;
     const command = msg.content.split(" ")[1];
 
