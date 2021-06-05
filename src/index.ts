@@ -1,6 +1,6 @@
 import { Client, DMChannel } from 'discord.js';
 import { commandHandler } from './commandHandlers/commandHandler';
-import { CONFIG } from './config';
+import { CONFIG } from './config'; //TODO: Rename config file from sampleConfig to config
 
 export const client = new Client;
 const botPrefix = [""]; //TODO: add prefix
